@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery effects</title>
+    <style>
+        .downpara {
+            padding: 50px;
+            display: none;
+            background-color: antiquewhite;
+        }
+
+        .uppara {
+            padding: 50px;
+            /* display: none; */
+            background-color: antiquewhite;
+        }
+
+        .sltoggle {
+            padding: 50px;
+            /* display: none; */
+            background-color: antiquewhite;
+        }
+
+        .boxani {
+            background: #98bf21;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+        }
+        .boxchn{
+            background: #98bf21;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="para">This will hide/show according to the button you click.</p>
+    <button class="show">Show</button>
+    <button class="hide">hide</button>
+    <br>
+    <button class="fadein">Click me to see fade in</button>
+    <br>
+    <div id="fid" style="width:80px; height:80px; display:none; background-color:red;"></div>
+
+    <br>
+    <button class="fadeout">Click to fadeout</button>
+    <br>
+    <div class="fout" style="width:80px; height:80px; background-color:red;"></div>
+
+    <br>
+    <button class="fadetog">Click to fade toggle</button>
+    <br>
+    <div class="ftog" style="width:80px; height:80px; background-color:red;"></div>
+    <br>
+    <button class="slidedown">Click to slide down thr button</button>
+    <br>
+    <p class="downpara">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, hic?</p>
+    <br>
+    <button class="slideup">Click me to slide up</button>
+    <br>
+    <p class="uppara">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium aliquam error unde!</p>
+    <br>
+    <button class="slidetoggle">Toggle This Button</button>
+    <br>
+    <p class="sltoggle">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, repellat atque.</p>
+    <br>
+    <button class="animate">click to animate the below box :</button>
+    <br>
+    <div class="boxani"></div>
+    <br><br><br><br><br><br><br>
+    <button class="stop">Clicke me to stop toggle operation opeation</button>
+    <br>
+    <button class="chaining">This is the example of chaining :</button>
+    <br>
+    <div class="boxchn"></div>
+
+    <!--Javacript and Jquery below...-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.show').click(function () {
+                $('.para').show(1000);
+            });
+
+            $('.hide').click(function () {
+                $('.para').hide(1000);
+            });
+
+            $('.fadein').click(function () {
+                $('#fid').fadeIn(2000);
+            });
+
+            $('.fadeout').click(function () {
+                $('.fout').fadeOut(2000);
+            });
+
+            $('.fadetog').click(function () {
+                $('.ftog').fadeToggle(2000);
+            });
+
+            $('.slidedown').click(function () {
+                $('.downpara').slideDown(1000);
+            });
+
+            $('.slideup').click(function () {
+                $('.uppara').slideUp(1000);
+            });
+
+            $('.slidetoggle').click(function () {
+                $('.sltoggle').slideToggle(4000);
+            });
+
+            $('.animate').click(function () {
+                $('.boxani').animate({
+                    left: '250px',
+                    opacity: '0.5'
+                }
+                );
+            });
+
+            $('.stop').click(function(){
+                $('.sltoggle').stop();
+            });
+
+            $('.chaining').click(function(){
+                $('.boxchn').css("background-color","yellow").slideUp(2000).slideDown(2000);
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>
