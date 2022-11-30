@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery HTML</title>
+    <style>
+        /*Style Goes Here*/
+        .box {
+            background: #98bf21;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+        }
+
+        .newclass {
+            text-decoration: underline;
+            background-color: aqua;
+        }
+
+        #divid {
+            height: 100px;
+            width: 300px;
+            padding: 10px;
+            margin: 3px;
+            border: 1px solid blue;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<p>This is some text <b>Bold</b>and <span>span</span></p>
+<button id="text">Click to see text</button><br>
+<button id="html">Click to see the html</button>
+<br>
+<p>Enter Text :</p>
+<input type="text" class="inp">
+<button class="showinp">Show input text</button>
+<button class="changeinp">Clicke here to Change the input text</button>
+<br>
+<a class="link" href="ucertify.com">uCertify</a>
+<br>
+<button class="attr">Click to see the URL</button>
+<br>
+<p class="append">This paragraph will append.</p>
+<button class="appendbutton">Click to append above text</button>
+<button class="prependbutton">Click to Prepend above text</button>
+<ol>
+    <li>Elem</li>
+    <li>Elem</li>
+    <li>Elem</li>
+    <li>Elem</li>
+</ol>
+<button class="btn-li">Click to Append list</button>
+<button class="btn-li-p">Click to Prepend list</button>
+<br>
+<p class="anb">This is to test after and before.</p>
+<br>
+<button class="after">Click to Add after</button>
+<button class="before">Click to Add before</button>
+<div class="box">
+    <p>Hello WOrld</p>
+    <p class="child">Hello Jquery</p>
+</div>
+<br><br><br><br><br><br><br>
+<button class="remove">Click To Remove</button>
+<button class="empty">Click To empty</button>
+<br>
+<p class="addcls">It will Transform.</p>
+<br><button class="addcss">Click to add class on above text</button>
+<br><button class="removecss">Click to remove class on above text</button>
+<br><button class="togglecss">Click to toggle class on above text</button>
+<br>
+<button class="cssprop">Click me to see the box css prop.</button>
+<button class="modify">Click to modify css</button>
+<div id="divid"></div>
+<br>
+<button class="showhw">Click to see height and width</button>
+<button class="sethw">Click to see height and width</button>
+
+<body>
+
+    <!--Javacript and Jquery below...-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //Write js and jquery here
+            $('#text').click(function () {
+                console.log("Text :" + $('p').text());
+            });
+            $('#html').click(function () {
+                console.log("html :" + $('p').html());
+            });
+
+            $('.showinp').click(function () {
+                console.log($('.inp').val());
+            });
+            $('.attr').click(function () {
+                console.log($('.link').attr("href"));
+            });
+            $('.changeinp').click(function () {
+                $('p:first').text("This is the new text");
+            });
+            $('.appendbutton').click(function () {
+                $('.append').append('Append Successfull &nbsp;');
+            });
+            $('.btn-li').click(function () {
+                $('ol').append('<li>Elem</li>');
+            });
+            $('.prependbutton').click(function () {
+                $('.append').prepend('Append Successfull &nbsp;');
+            });
+            $('.btn-li-p').click(function () {
+                $('ol').prepend('<li>ElemP</li>');
+            });
+            $('.before').click(function () {
+                $('.anb').before('<b>&nbsp; Before &nbsp;</b>');
+            });
+            $('.after').click(function () {
+                $('.anb').after('<i>&nbsp; After &nbsp;</i>');
+            });
+            $('.remove').click(function () {
+                $('.box').remove();
+            });
+            $('.empty').click(function () {
+                $('.box').empty();
+            });
+            $('.addcss').click(function () {
+                $('.addcls').addClass('newclass');
+            });
+            $('.removecss').click(function () {
+                $('.addcls').removeClass('newclass');
+            });
+            $('.togglecss').click(function () {
+                $('.addcls').toggleClass('newclass');
+            });
+            $('.cssprop').click(function () {
+                alert($('.box').css("background"));
+            });
+            $('.modify').click(function () {
+                $('.addcls').css({ "background-color": "yellow", "font-size": "200%" });
+            });
+            $('.showhw').click(function(){
+                var txt = "";
+                txt += "Width of div: " + $("#divid").width() + "</br>";
+                txt += "Height of div: " + $("#divid").height();
+                txt += "Inner width: " + $("#divid").innerWidth() + "</br>";
+                txt += "Inner height: " + $("#divid").innerHeight();
+                 txt += "Outer width: " + $("#divid").outerWidth() + "</br>";
+                txt += "Outer height: " + $("#divid").outerHeight();
+                txt += "Outer width (+margin): " + $("#divid").outerWidth(true) + "</br>";
+                txt += "Outer height (+margin): " + $("#divid").outerHeight(true);
+                $("#divid").html(txt);
+            });
+            $(".sethw").click(function () {
+                $("#divid").width(500).height(500);
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>
