@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>children</title>
+    <style>
+        /*Style Goes Here*/
+        .parent * {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <p class="child">
+            Beta 1
+        </p>
+        <p class="child1">
+            Beta 2
+            <span>Grandson</span>
+        </p>
+    </div>
+
+    <!--Javacript and Jquery below...-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+          //Write js and jquery here
+          $('div').children().css("border","2px solid green");
+          $('div').children('p.child1').css("border","2px solid yellow");
+          $('div').find('span').css("border","2px solid red");
+        });
+    </script>
+</body>
+
+</html>
