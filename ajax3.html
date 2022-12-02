@@ -6,7 +6,7 @@
     <script>
         $(document).ready(function () {
             $("button").click(function () {
-                $.get("notes.txt", function (data, status) {
+                $.get("jq.php", function (data, status) {
                     alert("Data: " + data + "\nStatus: " + status);
                 });
             });
